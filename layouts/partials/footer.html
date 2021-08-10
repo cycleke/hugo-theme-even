@@ -18,7 +18,7 @@
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    {{ T "theme" }} - 
+    {{ T "theme" }} -
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
@@ -39,12 +39,16 @@
 
   <span class="copyright-year">
     {{- $current := now.Format "2006" }}
-    &copy; 
+    &copy;
     {{ if ne .Site.Params.since $current -}}
-      {{ .Site.Params.since }} - 
+    {{ .Site.Params.since }} -
     {{ end }}
-    {{- $current -}}
-    <span class="heart"><i class="iconfont icon-heart"></i></span><!--
-    --><span>{{if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}{{ .Site.Author.name | safeHTML }}{{ end }}</span>
-  </span>
+    {{- $current }}
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">{{if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}{{ .Site.Author.name | safeHTML }}{{ end }}</span>
+    {{if .Site.Params.beian.enable }}
+    <a href="https://beian.miit.gov.cn/">{{ .Site.Params.beian.icp | safeHTML }}</a>
+    {{ end }}
 </div>
